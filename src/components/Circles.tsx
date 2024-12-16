@@ -30,7 +30,7 @@ export function CircleInfo({ id, x, y, onChange }: CircleProps) {
           borderRadius: "5px 5px 0 0",
         }}
       >
-        Position Circle {id + 1}
+        Position Kreis {id + 1}
       </div>
       <div
         className="input-group mb-3"
@@ -44,19 +44,6 @@ export function CircleInfo({ id, x, y, onChange }: CircleProps) {
         <input type="number" className="form-control" value={y} onChange={handleYChange} />
       </div>
     </>
-  );
-}
-
-export function CircleWrapper({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-      }}
-    >
-      {children}
-    </div>
   );
 }
 
@@ -87,15 +74,11 @@ export function Circle({ id, x, y, size, onChange }: CircleProps) {
 
   return (
     <div
+      className="circle"
       style={{
-        borderRadius: "50%",
-        borderStyle: "solid",
-        borderWidth: "2px",
-        borderColor: "rgb(224, 42, 42)",
-        backgroundColor: "transparent",
+        position: "absolute",
         width: `${size}px`,
         height: `${size}px`,
-        position: "absolute",
         left: `${x - size * 0.5}px`,
         top: `${y - size * 0.5}px`,
         cursor: isDragging ? "grabbing" : "grab",

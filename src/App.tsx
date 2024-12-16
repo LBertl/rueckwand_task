@@ -3,7 +3,7 @@ import { CircleWrapper, CircleInfo, Circle } from "./components/Circles";
 import { useState, useRef } from "react";
 
 function App() {
-  const imgsrc = "./src/assets/muster2.png";
+  const imgsrc = "./src/assets/muster.png";
   const [circles, setCircles] = useState([{ id: 0, x: 100, y: 80 }]);
   const circleSize = 30;
   const imageDiv = useRef(null);
@@ -41,6 +41,7 @@ function App() {
   return (
     <>
       <div // -- Grid Setup --
+        className="font-monospace"
         style={{
           display: "grid",
           gridTemplateColumns: "70% 30%",
@@ -50,7 +51,7 @@ function App() {
         <div // -- Image --
           className="center light-div"
           style={{
-            gridArea: "1 / 1 / 3 / 2",
+            gridArea: "1 / 1 / 4 / 2",
           }}
         >
           <div
@@ -61,7 +62,7 @@ function App() {
               position: "relative",
               backgroundSize: "cover",
               backgroundImage: `url(${imgsrc})`,
-              border: "2px solid #222",
+              boxShadow: "rgba(152, 152, 152, 0.75) 0px 0px 30px",
             }}
           >
             {circles.map((circle) => (
@@ -80,32 +81,30 @@ function App() {
         <div // -- Circle Info --
           className="light-div"
           style={{
-            padding: "5%",
             overflowY: "scroll",
             gridArea: "1 / 2 / 2 / 3",
           }}
         >
-          <CircleWrapper>
-            {circles.map((circle) => (
-              <CircleInfo
-                key={circle.id}
-                id={circle.id}
-                x={circle.x}
-                y={circle.y}
-                size={circleSize}
-                onChange={updateCirclePosition}
-              />
-            ))}
-            <button
-              onClick={() => {
-                setCircles([...circles, { id: circles.length, x: 0, y: 0 }]);
-              }}
-              type="button"
-              className="btn btn-secondary"
-            >
-              Add Circle
-            </button>
-          </CircleWrapper>
+          {circles.map((circle) => (
+            <CircleInfo
+              key={circle.id}
+              id={circle.id}
+              x={circle.x}
+              y={circle.y}
+              size={circleSize}
+              onChange={updateCirclePosition}
+            />
+          ))}
+          <button
+            onClick={() => {
+              setCircles([...circles, { id: circles.length, x: 0, y: 0 }]);
+            }}
+            type="button"
+            className="btn btn-secondary"
+          >
+            Kreis hinzufügen
+          </button>
+          <span className="center">Disclaimer: Darauf achten, dass kein Kreis in der Nähe von (0,0) ist!</span>
         </div>
 
         <div // -- Materials --
@@ -113,6 +112,7 @@ function App() {
           style={{
             padding: "5%",
             gridArea: "2 / 2 / 4 / 3",
+            overflowY: "scroll",
           }}
         >
           <Materials
@@ -130,7 +130,7 @@ function App() {
         >
           <button
             type="button"
-            className="btn btn-success btn-block"
+            className="btn btn-dark"
             onClick={() => {
               circles.forEach((c) => {
                 const perc = { x: 0, y: 0 };
@@ -143,7 +143,7 @@ function App() {
               console.log(materialList[selectedMaterial]);
             }}
           >
-            Submit
+            Konsolen-Output
           </button>
         </div>
       </div>

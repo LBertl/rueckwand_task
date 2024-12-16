@@ -3,7 +3,30 @@
     justify-content: center;
     align-items: center;
 }
+
 .light-div {
     margin: 15px;
-    background-color: #f8f8f8;
+    padding: 15px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 5px;
+}
+
+.circle {
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(224, 42, 42);
+    background-color: transparent;
+}
+
+button {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px;
+    box-sizing: border-box;
+    font-size: 18pt;
+    margin: 0 0 10px 0;
+    padding: 5px;
+    box-shadow: rgba(152, 152, 152, 0.5) 0px 0px 15px;
+    position: relative;
 }

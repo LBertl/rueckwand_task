@@ -14,14 +14,12 @@ export default function Materials({ materialList, selectedMaterial, setSelectedM
       }}
     >
       <div className="center">
-        <h3>Wähle dein Material:</h3>
+        <span>Wähle dein Material:</span>
       </div>
       <div
         style={{
           display: "grid",
           width: "100%",
-          padding: "10%",
-          overflow: "hidden",
         }}
       >
         {materialList.map((item, index) => (
@@ -29,19 +27,11 @@ export default function Materials({ materialList, selectedMaterial, setSelectedM
             type="button"
             key={item}
             onClick={() => setSelectedMaterial(index)}
+            className="btn btn-active"
             style={{
-              width: "100%",
-              overflow: "hidden",
-              borderRadius: "5px 5px",
-              boxSizing: "border-box",
-              border: `${index == selectedMaterial ? "rgb(28, 141, 103) 2px solid" : "none"}`,
-              backgroundColor: `${index == selectedMaterial ? "rgb(248, 255, 252)" : "rgb(255, 255, 255)"}`,
-              fontSize: "18pt",
-              margin: "0 0 10px 0",
-              padding: "5px",
-              boxShadow: "rgba(152, 152, 152, 0.35) 0px 5px 15px",
-              position: "relative",
+              backgroundColor: `${index == selectedMaterial ? "rgb(207, 224, 255)" : "rgb(255, 255, 255)"}`,
               zIndex: `${index == selectedMaterial ? 1 : 0}`,
+              margin: "5px 0 5px 0",
             }}
           >
             {item}
