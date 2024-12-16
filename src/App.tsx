@@ -1,5 +1,5 @@
 import Materials from "./components/Materials";
-import { CircleWrapper, CircleInfo, Circle } from "./components/Circles";
+import { CircleInfo, Circle } from "./components/Circles";
 import { useState, useRef } from "react";
 
 function App() {
@@ -110,7 +110,6 @@ function App() {
         <div // -- Materials --
           className="light-div"
           style={{
-            padding: "5%",
             gridArea: "2 / 2 / 4 / 3",
             overflowY: "scroll",
           }}
